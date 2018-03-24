@@ -8,7 +8,7 @@
 isset($argv[1]) or print "\n\nPlease specify your target file!\n\nUsage:\nphp checker.php target.txt\n\n" and exit(1);
 file_exists($argv[1]) or print "\n\nFile {$argv[1]} does not exist!\n" and exit(1);
 
-$data = explode("\n", file_get_contents("target.txt"));
+$data = explode("\n", file_get_contents($argv[1]));
 foreach ($data as $val) {
 	$val = explode("|", $val, 2);
 	echo $val[0]."|".$val[1]." => ".check($val[0], $val[1])."\n";
